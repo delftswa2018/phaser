@@ -1067,8 +1067,7 @@ var Text = new Class({
                 right: this.padding.right,
                 top: this.padding.top,
                 bottom: this.padding.bottom
-            },
-            lineSpacing: this.lineSpacing
+            }
         };
 
         out.data = data;
