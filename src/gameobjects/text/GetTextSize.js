@@ -17,7 +17,7 @@ var GetTextSize = function (text, size, lines)
     var lineWidths = [];
     var maxLineWidth = 0;
     var drawnLines = lines.length;
-    
+
     if (style.maxLines > 0 && style.maxLines < lines.length)
     {
         drawnLines = style.maxLines;
@@ -47,7 +47,7 @@ var GetTextSize = function (text, size, lines)
 
     var lineHeight = size.fontSize + style.strokeThickness;
     var height = lineHeight * drawnLines;
-    var lineSpacing = text._lineSpacing || 0;
+    var lineSpacing = style.lineSpacing || 0;
 
     if (lineSpacing < 0 && Math.abs(lineSpacing) > lineHeight)
     {

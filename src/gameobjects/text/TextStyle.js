@@ -34,7 +34,8 @@ var propertyMap = {
     wordWrapWidth: [ 'wordWrap.width', null ],
     wordWrapCallback: [ 'wordWrap.callback', null ],
     wordWrapCallbackScope: [ 'wordWrap.callbackScope', null ],
-    wordWrapUseAdvanced: [ 'wordWrap.useAdvancedWrap', false ]
+    wordWrapUseAdvanced: [ 'wordWrap.useAdvancedWrap', false ],
+    lineSpacing: [ 'lineSpacing', 1 ]
 };
 
 /**
@@ -211,6 +212,16 @@ var TextStyle = new Class({
          * @since 3.0.0
          */
         this.maxLines;
+
+        /**
+         * [description]
+         *
+         * @name Phaser.GameObjects.Components.TextStyle#lineSpacing
+         * @type {integer}
+         * @default 0
+         * @since 3.1.0
+         */
+        this.lineSpacing;
 
         /**
          * [description]
