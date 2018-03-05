@@ -35,7 +35,7 @@ var propertyMap = {
     wordWrapCallback: [ 'wordWrap.callback', null ],
     wordWrapCallbackScope: [ 'wordWrap.callbackScope', null ],
     wordWrapUseAdvanced: [ 'wordWrap.useAdvancedWrap', false ],
-    lineSpacing: [ 'lineSpacing', 1 ]
+    lineSpacing: [ 'lineSpacing', 0 ]
 };
 
 /**
