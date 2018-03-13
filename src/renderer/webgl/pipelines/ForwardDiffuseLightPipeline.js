@@ -71,7 +71,12 @@ var ForwardDiffuseLightPipeline = new Class({
      */
     onRender: function (scene, camera)
     {
-        var lightManager = scene.lights;
+        var lightManager = scene.sys.lights;
+
+        if (!lightManager)
+        {
+            return this;
+        }
 
         lightManager.culledLights.length = 0;
 
@@ -82,7 +87,7 @@ var ForwardDiffuseLightPipeline = new Class({
 
         var renderer = this.renderer;
         var program = this.program;
-        var lights = scene.lights.cull(camera);
+        var lights = lightManager.cull(camera);
         var lightCount = Math.min(lights.length, LIGHT_COUNT);
         var cameraMatrix = camera.matrix;
         var point = {x: 0, y: 0};
