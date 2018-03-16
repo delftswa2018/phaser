@@ -480,8 +480,6 @@ var Camera = new Class({
         var culledObjects = this.culledObjects;
         var length = renderableObjects.length;
 
-        determinant = 1 / determinant;
-
         culledObjects.length = 0;
 
         for (var index = 0; index < length; ++index)
@@ -556,8 +554,6 @@ var Camera = new Class({
         var cameraH = this.height;
         var length = interactiveObjects.length;
 
-        determinant = 1 / determinant;
-
         var culledObjects = [];
 
         for (var index = 0; index < length; ++index)
@@ -615,7 +611,7 @@ var Camera = new Class({
 
         if (!determinant)
         {
-            return tiles;
+            return tilemap.tiles;
         }
 
         var mve = cameraMatrix[4];
@@ -633,8 +629,6 @@ var Camera = new Class({
         var cullH = cameraH + tileH;
         var scrollFactorX = tilemap.scrollFactorX;
         var scrollFactorY = tilemap.scrollFactorY;
-
-        determinant = 1 / determinant;
 
         culledObjects.length = 0;
 
@@ -765,7 +759,7 @@ var Camera = new Class({
         /* First Invert Matrix */
         var determinant = (mva * mvd) - (mvb * mvc);
 
-        if (!determinant)
+        if (!determinant || determinant === 0)
         {
             output.x = x;
             output.y = y;
@@ -1323,7 +1317,7 @@ var Camera = new Class({
             {
                 this._shakeOffsetX = (Math.random() * intensity * this.width * 2 - intensity * this.width) * this.zoom;
                 this._shakeOffsetY = (Math.random() * intensity * this.height * 2 - intensity * this.height) * this.zoom;
-                
+
                 if (this.roundPixels)
                 {
                     this._shakeOffsetX |= 0;
