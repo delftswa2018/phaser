@@ -303,6 +303,20 @@ var GameObject = new Class({
     },
 
     /**
+     * Compares the cameraFilter mask with the given camera id to see if they match.
+     *
+     * @method Phaser.GameObjects.GameObject#checkCameraFilter
+     * @since 3.0.0
+     *
+     * @return {boolean} True if the Game Object should be drawn by given Camera._id, otherwise false.
+     */
+    checkCameraFilter: function (id)
+    {
+        // The >0 check is here to prevent signed number opposite masks from returning a true
+        return (GameObject.cameraFilter > 0 && (GameObject.cameraFilter & id));
+    },
+
+    /**
      * Destroys this Game Object removing it from the Display List and Update List and
      * severing all ties to parent resources.
      * 
