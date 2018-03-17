@@ -22,7 +22,7 @@ var GameObject = require('../GameObject');
  */
 var BlitterWebGLRenderer = function (renderer, gameObject, interpolationPercentage, camera)
 {
-    if (GameObject.RENDER_MASK !== gameObject.renderFlags || (gameObject.cameraFilter > 0 && (gameObject.cameraFilter & camera._id)))
+    if (GameObject.RENDER_MASK !== gameObject.renderFlags || gameObject.checkCameraFilter(camera._id))
     {
         return;
     }

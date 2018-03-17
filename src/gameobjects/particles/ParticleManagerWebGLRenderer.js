@@ -24,7 +24,7 @@ var ParticleManagerWebGLRenderer = function (renderer, emitterManager, interpola
 {
     var emitters = emitterManager.emitters;
 
-    if (emitters.length === 0 || GameObject.RENDER_MASK !== emitterManager.renderFlags || (emitterManager.cameraFilter > 0 && (emitterManager.cameraFilter & camera._id)))
+    if (emitters.length === 0 || GameObject.RENDER_MASK !== emitterManager.renderFlags || emitterManager.checkCameraFilter(camera._id))
     {
         return;
     }

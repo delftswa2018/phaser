@@ -24,6 +24,7 @@ var ParticleManagerCanvasRenderer = function (renderer, emitterManager, interpol
 {
     var emitters = emitterManager.emitters.list;
 
+    // TODO[cw]
     if (emitters.length === 0 || GameObject.RENDER_MASK !== emitterManager.renderFlags || (emitterManager.cameraFilter > 0 && (emitterManager.cameraFilter & camera._id)))
     {
         return;

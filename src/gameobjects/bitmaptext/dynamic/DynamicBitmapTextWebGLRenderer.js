@@ -25,7 +25,7 @@ var DynamicBitmapTextWebGLRenderer = function (renderer, bitmapText, interpolati
     var text = bitmapText.text;
     var textLength = text.length;
 
-    if (GameObject.RENDER_MASK !== bitmapText.renderFlags || textLength === 0 || (bitmapText.cameraFilter > 0 && (bitmapText.cameraFilter & camera._id)))
+    if (GameObject.RENDER_MASK !== bitmapText.renderFlags || textLength === 0 || bitmapText.checkCameraFilter(camera._id))
     {
         return;
     }

@@ -22,7 +22,7 @@ var GameObject = require('../GameObject');
  */
 var GraphicsWebGLRenderer = function (renderer, graphics, interpolationPercentage, camera)
 {
-    if (GameObject.RENDER_MASK !== graphics.renderFlags || (graphics.cameraFilter > 0 && (graphics.cameraFilter & camera._id)))
+    if (GameObject.RENDER_MASK !== graphics.renderFlags || graphics.checkCameraFilter(camera._id))
     {
         return;
     }

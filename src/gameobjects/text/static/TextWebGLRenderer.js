@@ -22,7 +22,7 @@ var GameObject = require('../../GameObject');
  */
 var TextWebGLRenderer = function (renderer, src, interpolationPercentage, camera)
 {
-    if (GameObject.RENDER_MASK !== src.renderFlags || (src.cameraFilter > 0 && (src.cameraFilter & camera._id)) || src.text === '')
+    if (GameObject.RENDER_MASK !== src.renderFlags || src.checkCameraFilter(camera._id) || src.text === '')
     {
         return;
     }
